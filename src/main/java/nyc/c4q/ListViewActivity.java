@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +37,7 @@ public class ListViewActivity extends Activity {
         textLog = (TextView) findViewById(R.id.textLog);
         listView = (ListView) findViewById(R.id.list);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, COLORS);
+        ColorAdapter adapter = new ColorAdapter(this, android.R.layout.simple_list_item_1, COLORS);
         listView.setAdapter(adapter);
 
         //08
@@ -51,28 +52,22 @@ public class ListViewActivity extends Activity {
         });
     }
 
-    //07
-    public int getCount() {
-        return COLORS.length;
-    }
+    public class ColorAdapter extends ArrayAdapter<String> {
 
-    public class ColorAdapter extends ArrayAdapter<String>{
-
-        public ColorAdapter(Context context, int resource) {
-            super(context, resource);
+        public ColorAdapter(Context context, int resource, String[] objects) {
+            super(context, resource, objects);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View rowView = super.getView(position, convertView, parent);
-            ColorDrawable colorDrawable = new ColorDrawable();
-            colorDrawable.setColor(Integer.parseInt(COLORS[position]));
-          //  ColorDrawable backgroundColor = Color.parseColor(COLORS[position]);
-            rowView.setBackgroundColor(backgroundColor);
+            String colorString = COLORS[position];
+            int colorValue = Color.parseColor(colorString);
+            Drawable colorDrawable = new ColorDrawable(colorValue);
+            rowView.setBackground(colorDrawable);
             return rowView;
         }
     }
-
 
 
 }
