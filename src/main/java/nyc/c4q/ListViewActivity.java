@@ -47,7 +47,7 @@ public class ListViewActivity extends Activity {
                 int itemPosition = position;
                 String color = (String) listView.getItemAtPosition(position);
 
-                textLog.setText("You clicked on Item(position=" + itemPosition + "," + "color=" + color + ")");
+                textLog.setText("You clicked on Item(position=" + itemPosition + ", " + "color=" + color + ")");
             }
         });
     }
