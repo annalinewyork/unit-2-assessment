@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,6 +30,7 @@ public class ListViewActivity extends Activity {
     };
     public TextView textLog;
     ListView listView;
+    EditText adapterCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class ListViewActivity extends Activity {
         setContentView(R.layout.activity_listview);
         textLog = (TextView) findViewById(R.id.textLog);
         listView = (ListView) findViewById(R.id.list);
+        adapterCount = (EditText) findViewById(R.id.adapterCount);
 
         ColorAdapter adapter = new ColorAdapter(this, android.R.layout.simple_list_item_1, COLORS);
         listView.setAdapter(adapter);
@@ -46,7 +49,6 @@ public class ListViewActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 int itemPosition = position;
                 String color = (String) listView.getItemAtPosition(position);
-
                 textLog.setText("You clicked on Item(position=" + itemPosition + ", " + "color=" + color + ")");
             }
         });
@@ -58,6 +60,7 @@ public class ListViewActivity extends Activity {
             super(context, resource, objects);
         }
 
+        //07
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View rowView = super.getView(position, convertView, parent);
@@ -67,6 +70,7 @@ public class ListViewActivity extends Activity {
             rowView.setBackground(colorDrawable);
             return rowView;
         }
+
     }
 
 

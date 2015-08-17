@@ -76,12 +76,14 @@ public class NetworkActivity extends Activity {
         httpbinget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                httptextlog.setText(urlParams);
             }
         });
 
         httpbingetokhttp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                httptextlog.setText(urlParams.replaceAll("\\+"," "));
             }
         });
 
