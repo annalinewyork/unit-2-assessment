@@ -58,6 +58,7 @@ public class ListViewActivity extends Activity {
 
         public ColorAdapter(Context context, int resource, String[] objects) {
             super(context, resource, objects);
+
         }
 
         //07
