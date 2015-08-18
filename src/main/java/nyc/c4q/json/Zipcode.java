@@ -4,12 +4,14 @@ public class Zipcode {
 
     public String _id, city, state;
     public int pop;
+    public double [] loc;
 
-    public Zipcode(String _id, String city, String state, int pop) {
+    public Zipcode(String _id, String city, String state, int pop, double[] loc) {
         this._id = _id;
         this.city = city;
         this.state = state;
         this.pop = pop;
+        this.loc = loc;
     }
 
     public String get_id() {
@@ -42,5 +44,13 @@ public class Zipcode {
 
     public void setPop(int pop) {
         this.pop = pop;
+    }
+
+    public double[] getLoc() {
+        return loc;
+    }
+
+    public void setLoc(double[] loc) {
+        this.loc = loc;
     }
 }

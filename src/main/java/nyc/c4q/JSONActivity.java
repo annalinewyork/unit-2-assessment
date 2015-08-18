@@ -60,15 +60,15 @@ public class JSONActivity extends Activity {
             String jsonCity = jsonObject.getString("city");
             int jsonPop = jsonObject.getInt("pop");
             String jsonState = jsonObject.getString("state");
-            String jsonLat = jsonLoc.get(0).toString();
-            String jsonLong = jsonLoc.get(1).toString();
+            double jsonLat = jsonLoc.getDouble(0);
+            double jsonLong = jsonLoc.getDouble(1);
 
             _id.setText(jsonId);
             city.setText(jsonCity);
             state.setText(jsonState);
             pop.setText(jsonPop+"");
-            _lat.setText(jsonLat);
-            _long.setText(jsonLong);
+            _lat.setText(jsonLat + "0.01");
+            _long.setText(jsonLong+"0.01");
 
         } catch (JSONException e) {
             e.printStackTrace();
